@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Topbar from './components/global/Topbar';
+import SideNav from './components/global/SideNav';
+import Discover from './components/discover/Discover';
+import { Routes, Route } from 'react-router-dom';
+import { ProSidebarProvider } from 'react-pro-sidebar';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className="app">
+    <ProSidebarProvider>
+    <SideNav />
+    </ProSidebarProvider>
+  
+      <main className='content' >
+        <Topbar />
+        <Routes>
+          <Route path='/' element={<Discover />} />
+        </Routes>
+
+      </main>
     </div>
   );
 }
