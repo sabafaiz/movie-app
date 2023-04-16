@@ -55,3 +55,17 @@ body,
 }
 
 
+/*paragraph-space  */
+
+.paragraph-space p{
+  display: flex;
+  gap: 18px;
+  font-size: 16px;
+  color: #D4D7DD;
+}
+
+
+
+
+
+

@@ -3,7 +3,6 @@ import MovieCard from '../movieCard/MovieCard';
 import { Grid } from '@mui/material';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import DetailCard from '../detailsCard/DetailCard';
 
 function Discover() {
 
@@ -31,13 +30,6 @@ function Discover() {
           movieData && movieData.length > 0 &&
           movieData.map((movie) =>
             <MovieCard key={movie.imdbID} movieData={movie} />)
-        }
-      </Grid>
-      <Grid sx={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
-        {
-          movieData && movieData.length > 0 &&
-          movieData.map((movie) =>
-            <DetailCard key={movie.imdbID} movieData={movie} />)
         }
       </Grid>
     </div>

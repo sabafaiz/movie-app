@@ -1,9 +1,10 @@
 import React from 'react';
 import { Box, Card, CardMedia, Typography, Button } from "@mui/material";
+import ProgressBars from '../progressBar/progressBar';
 
 
 
-function DetailCard({movieData}) {
+function DetailCard({ movieData }) {
     const
         { Title,
             Poster,
@@ -12,7 +13,7 @@ function DetailCard({movieData}) {
             Runtime,
             Director,
             Language,
-            Plot 
+            Plot
         } = movieData;
 
     return (
@@ -43,10 +44,12 @@ function DetailCard({movieData}) {
 
                 <Typography
                     gutterBottom
-                    fontSize="30"
+                    fontSize="30px"
                     component="div"
                     color="#D4D7DD"
                     padding="10px 0"
+                    fontWeight='700'
+                    marginBottom='0'
                 >
                     {Title}
                 </Typography>
@@ -57,10 +60,17 @@ function DetailCard({movieData}) {
                     color="#D4D7DD"
                     padding="10px 0"
                 >
-                    {imdbRating}
+                    <ProgressBars />
                 </Typography>
 
-                <Card sx={{ backgroundColor: 'transparent' }}>
+                <Card sx={{
+                    backgroundColor: 'transparent',
+                    color: '#fff',
+                    boxShadow: 'none',
+                    justifyContent: 'space-between',
+                    marginRight: '0 0 0 18px'
+                }}
+                    className='paragraph-space'>
                     <p><span>Year:</span><span>{Year}</span></p>
                     <p><span>Running Time:</span><span>{Runtime}</span></p>
                     <p><span>Directed By:</span><span>{Director}</span></p>
@@ -68,15 +78,31 @@ function DetailCard({movieData}) {
 
                 </Card>
 
-                <Card>
-                    <Typography>
+                <Card sx={{ backgroundColor: 'transparent', color: '#fff', boxShadow: 'none' }}>
+                    <Typography sx={{ fontSize: '14px', color: '#D4D7DD' }}>
                         {Plot}
                     </Typography>
                 </Card>
 
 
-                <Button sx={{ padding: "0" }}>Play Movie</Button>
-                <Button>Watch Trailer</Button>
+                <Button sx={{
+                    marginTop: '20px',
+                    marginRight: '10px',
+                    backgroundColor: '#00E0FF',
+                    color: '#000',
+                    fontWeight: '600'
+                }}
+                    variant="contained">
+                    Play Movie
+                </Button>
+                <Button sx={{
+                    marginTop: '20px',
+                    outlineColor: '#00E0FF',
+                    color: '#fff'
+                }}
+                    variant="outlined"
+                >Watch Trailer
+                </Button>
 
             </Card>
 
