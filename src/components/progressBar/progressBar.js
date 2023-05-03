@@ -20,7 +20,8 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   }
 }));
 
- function ProgressBars() {
+ function ProgressBars(props) {
+  console.log(props);
   return (
     <Box sx={{ display: "flex", alignItems: "center", width: "111px" }}>
       <Box sx={{ width: "100%", mr: 1 }}>
@@ -29,8 +30,8 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
       <Box sx={{ minWidth: 35 }}>
         <Typography
           variant="body2"
-          color="text.secondary"
-        >{`${7.8}/10`}</Typography>
+          color="#fff"
+        >{`${Number(props.imdbRating)}/10`}</Typography>
       </Box>
     </Box>
   );

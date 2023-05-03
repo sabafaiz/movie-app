@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Card, CardMedia, Typography, IconButton } from "@mui/material"
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
-// import DetailCard from '../detailsCard/DetailCard';
-
-
-
+import DetailCard from '../detailsCard/DetailCard';
+// import { motion } from 'framer-motion'
 
 function MovieCard({ movieData }) {
-    
+
+    const [isShow, setIsShow] = useState(false);
     const { Title, Poster } = movieData;
 
     return (
+
         <Box sx={{ p: 2 }}>
             <Card
                 sx={{
@@ -19,8 +19,10 @@ function MovieCard({ movieData }) {
                     borderRadius: '11px',
                     background: "#394B61",
                     height: 278,
-                    p: 1.5
-                }}>
+                    p: 1.5,
+                    cursor: 'pointer'
+                }}
+                onClick={() => setIsShow(!isShow)} >
                 <CardMedia
                     component="img"
                     alt={Title}
@@ -43,8 +45,11 @@ function MovieCard({ movieData }) {
                 <IconButton><ControlPointIcon sx={{ color: "#fff" }} /></IconButton>
 
             </Card>
-
-            {/* <DetailCard /> */}
+            {isShow &&
+                (<div className='detail-container'>
+                    <DetailCard movieData={movieData}/>
+                </div>
+                )}
         </Box>
     )
 }
